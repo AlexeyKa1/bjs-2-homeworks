@@ -1,6 +1,19 @@
+"use strict";
 function solveEquation(a, b, c) {
-  let arr;
-  // код для задачи №1 писать здесь
+  let arr = [];
+  let D = b**2 - 4 * a * c;
+
+  if(D > 0){
+    let tmp = [];
+    tmp.push((-b + Math.sqrt(D)) / (2*a));
+    tmp.push((-b - Math.sqrt(D)) / (2*a));
+    arr = tmp;
+  }else if(D === 0){
+    arr = -b / (2 * a);
+  }else if(D < 0){
+    return arr;
+  }
+
   return arr; // array
 }
 
