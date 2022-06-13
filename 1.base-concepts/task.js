@@ -1,17 +1,13 @@
 "use strict";
 function solveEquation(a, b, c) {
   let arr = [];
-  let D = b**2 - 4 * a * c;
+  let discr = b**2 - 4 * a * c;
 
-  if(D > 0){
-    let tmp = [];
-    tmp.push((-b + Math.sqrt(D)) / (2*a));
-    tmp.push((-b - Math.sqrt(D)) / (2*a));
-    arr = tmp;
-  }else if(D === 0){
-    arr = -b / (2 * a);
-  }else if(D < 0){
-    return arr;
+  if(discr > 0){
+    arr.push((-b + Math.sqrt(discr)) / (2*a));
+    arr.push((-b - Math.sqrt(discr)) / (2*a));
+  }else if(discr === 0){
+    arr.push(-b / (2 * a));
   }
 
   return arr; // array
