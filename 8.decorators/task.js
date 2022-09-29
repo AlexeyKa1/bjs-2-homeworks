@@ -29,21 +29,22 @@ function debounceDecoratorNew(func, ms) {
       func(...args);
     }
     clearTimeout(timerId);
-    timerId = setTimeout(() => timerId = null, ms);
+    timerId = setTimeout(() => func(...args), ms);
   }
   return wrapper;
 }
 
 // задача 3
-function debounceDecorator2(func) {
+function debounceDecorator2(func, ms) {
   let timerId = null;
   function wrapper(...args){
     if (timerId === null) {
       func(...args);
     }
     clearTimeout(timerId);
-    timerId = setTimeout(() => timerId = null, ms);
+    timerId = setTimeout(() => func(...args), ms);
     wrapper.count++;
   }
+  wrapper.count = 0;
   return wrapper;
 }
